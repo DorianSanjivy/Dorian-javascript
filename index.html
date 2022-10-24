@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Index</title>
+        <meta name="author" content="Dorian SANJIVY">
+    </head>
+    <body>
+        <script>
+            let numOfCourses = prompt("How many courses did you finish?", 0);
+            numOfCourses = parseInt(numOfCourses);
+
+            IsANumber = isNaN(numOfCourses);
+
+            if (IsANumber == true){
+                numOfCourses = 0;
+                document.open;
+                document.write("Invalid Input!");
+                document.close;
+            }
+            else{
+                courseMarks = []
+
+                for (let i=0; i<numOfCourses ;i++){
+                    let Mark = prompt(`Enter your mark for course ${i+1}` , 0);
+                    Mark = parseInt(Mark);
+                    IsANumber = isNaN(Mark);
+
+                    while (IsANumber == true){
+                        Mark = prompt(`Enter your mark for course ${i+1}`  , 0);
+                        Mark = parseInt(Mark);
+                        IsANumber = isNaN(Mark);
+                    }
+                    
+                    courseMarks.push(Mark);
+                }
+            }
+
+            let average = 0;
+
+            for (let i=0; i<numOfCourses ;i++){
+                document.write(courseMarks[i]);
+                document.write("<p>");
+                average = average + courseMarks[i];
+            }
+
+            average = average/numOfCourses;
+            average = ((Math.round(average*100))/100);
+            document.write(average);
+
+            document.write("<p>");
+            if (average >= 90 && average <=100 ){
+                document.write("Your final average is " + average + ". Your grade is A+");
+                document.write("<p>");
+            }
+            if (average >= 80 && average <=89 ){
+                document.write("Your final average is " + average + ". Your grade is B");
+                document.write("<p>");
+            }
+            if (average >= 70 && average <=79 ){
+                document.write("Your final average is " + average + ". Your grade is C");
+                document.write("<p>");
+            }
+            if (average >= 60 && average <=69 ){
+                document.write("Your final average is " + average + ". Your grade is D");
+                document.write("<p>");
+            }
+            if (average <60 ){
+                document.write("Your final average is " + average + ". Your grade is F");
+                document.write("<p>");
+            }
+            if (average > 100){
+                document.write("Sorry, All the marks have to be from minimum 0 to maximum 100!");
+                document.write("<p>");
+            }
+
+
+        </script>
+        <footer>
+            <p>Copyright © 2022 ILAC and EFREI Paris – HTML-CSS major lab-work - created by: Dorian SANJIVY - All rights reserved</p>
+        </footer>
+    </body>
+</html>
